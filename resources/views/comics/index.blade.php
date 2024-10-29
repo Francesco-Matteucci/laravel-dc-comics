@@ -29,5 +29,10 @@
             @endforeach
         </tbody>
     </table>
+
+    <div class="mt-4">
+        <a href="{{ route('comics.create') }}" class="btn btn-success">Aggiungi Nuovo Fumetto</a>
+    </div>
+
 </div>
 @endsection
