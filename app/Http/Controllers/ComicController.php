@@ -70,7 +70,24 @@ class ComicController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'series' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'year' => 'required|integer',
+            'publisher' => 'required|string|max:255',
+            'genre' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'sale_date' => 'nullable|date',
+            'thumb' => 'nullable|url',
+            'description' => 'nullable|string',
+        ]);
+
+        $comic = Comic::findOrFail($id);
+
+        $comic->update($data);
+
+        return redirect()->route('comics.show', $comic->id)->with('success', 'Fumetto aggiornato con successo!');
     }
 
     /**
