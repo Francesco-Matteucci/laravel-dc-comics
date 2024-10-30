@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::resource('comics', ComicController::class);
+Route::get('/comics/{id}/edit', [ComicController::class, 'edit'])->name('comics.edit');
