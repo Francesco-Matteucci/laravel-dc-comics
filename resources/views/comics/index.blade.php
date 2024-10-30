@@ -34,7 +34,12 @@
                 <td><img src="{{ $comic->thumb }}" alt="Thumbnail"></td>
                 <td>
                     <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Visualizza</a>
-                    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning mt-2">Modifica</a>
+                    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning mt-2 ms-1">Modifica</a>
+                    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="delete-form">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger mt-2 ms-2" onclick="return confirm('Sei sicuro di voler eliminare questo fumetto?')">Elimina</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
