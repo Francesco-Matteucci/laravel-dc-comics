@@ -34,6 +34,7 @@
                 <td><img src="{{ $comic->thumb }}" alt="Thumbnail"></td>
                 <td>
                     <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">Visualizza</a>
+                    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-warning mt-2">Modifica</a>
                 </td>
             </tr>
             @endforeach
